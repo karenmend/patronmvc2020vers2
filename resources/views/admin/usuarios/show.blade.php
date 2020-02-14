@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('titulo','Administración | Editar noticia')
+@section('titulo','Administración | ' . $usuario->name)
 @section('titulo2','Noticias')
 
 @section('breadcrumbs')
@@ -9,9 +9,9 @@
 @section('contenido')
 <a class="btn btn-primary btn-sm"
     style="margin-bottom: 10px;"
-    href="{{route('noticias.index')}}">
+    href="{{route('usuarios.index')}}">
     <i class="fas fa-arrow-left"></i>
-    Volver a lista de noticias</a>
+    Volver a lista de Usuarios</a>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -29,31 +29,13 @@
                     {{Session::get('error')}}
                 </div>
             @endif
-           
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Editar noticia: {{$noticia->id}}</h3>
+                    <h3 class="card-title">Mostrar usuarios: {{$usuario->id}}</h3>
                 </div>
                 <div class="card-body">
-                    <form method="POST" 
-                        action="{{route('noticias.update',$noticia->id)}}">
-                        @csrf
-                        @method('PUT')
-                        <div class="form-group">
-                            <label>Título</label>
-                            <input type="text" value="{{$noticia->titulo}}"
-                                name="txtTitulo" class="form-control"/>
-                        </div>
-                        <div class="form-group">
-                            <label>Cuerpo</label>
-                            <textarea class="form-control" 
-                                rows="12" name="txtCuerpo">{{$noticia->cuerpo}}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit"
-                                class="btn btn-primary">Actualizar</button>
-                        </div>
-                    </form>
+                   <h1>{{$usuario->name}}</h1>
+                   <p>{{$usuario->email}}</p>
                 </div>
             </div>
         </div>

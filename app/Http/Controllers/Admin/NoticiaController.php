@@ -62,7 +62,7 @@ class NoticiaController extends Controller
         return redirect()->
             route('noticias.index')->
             with('error',
-            'No se pudo agregar al noticia');
+            'No se pudo agregar la noticia');
     }
 
     /**
