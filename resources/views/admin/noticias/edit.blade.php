@@ -44,11 +44,21 @@
                             <input type="text" value="{{$noticia->titulo}}"
                                 name="txtTitulo" class="form-control"/>
                         </div>
+                        @if($noticia>portada)
+                            <img style="width: 50px; height: auto;" src="/storage/portadas/{{$noticia->portada}}"/>
+                        @else
+                            <p>No hay imagen cargada.</p>
+                        @endif
+                        <div class="form-group">
+                            <label>Imagen</label>
+                            <input type="file"  name="imgPortada" class="form-control"/>
+                        </div>
                         <div class="form-group">
                             <label>Cuerpo</label>
                             <textarea class="form-control" 
                                 rows="12" name="txtCuerpo">{{$noticia->cuerpo}}</textarea>
                         </div>
+                    
                         <div class="form-group">
                             <button type="submit"
                                 class="btn btn-primary">Actualizar</button>
